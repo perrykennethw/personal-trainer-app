@@ -3,6 +3,7 @@ import Radio from "./Radio";
 interface RadioListGroupProps {
     name: string;
     options: RadioOption[];
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 interface RadioOption {
@@ -10,7 +11,7 @@ interface RadioOption {
     value: string;
 }
 
-function RadioListGroup({ name, options }: RadioListGroupProps) {
+function RadioListGroup({ name, options, onChange }: RadioListGroupProps) {
   return (
     <>
         <h3 className="mb-4 font-semibold text-gray-900 dark:text-white"></h3>
@@ -23,6 +24,7 @@ function RadioListGroup({ name, options }: RadioListGroupProps) {
                     name={name}
                     value={option.value}
                     label={option.label}
+                    onChange={onChange}
                 />
             ))
         }
